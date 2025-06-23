@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "framework": "other",
+  "builds": [
+    {
+      "src": "client/main.tsx", // If your frontend is in the `client` folder
+      "use": "@vercel/react"
+    },
+    {
+      "src": "server/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server/index.ts" }, // For API routes
+    { "src": "/(.*)", "dest": "/client/dist/index.html" } // For frontend
+  ]
+}
