@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 8%);
+  --foreground: hsl(320, 100%, 90%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(320, 30%, 70%);
+  --popover: hsl(0, 0%, 10%);
+  --popover-foreground: hsl(320, 100%, 90%);
+  --card: hsl(0, 0%, 12%);
+  --card-foreground: hsl(320, 100%, 90%);
+  --border: hsl(320, 30%, 25%);
+  --input: hsl(0, 0%, 15%);
+  --primary: hsl(320, 100%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(320, 100%, 60%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(0, 100%, 50%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(320, 100%, 60%);
+  --radius: 0.75rem;
+  
+  /* Custom shopping app colors - Pink & Black with Red highlights */
+  --app-primary: hsl(0, 0%, 8%);
+  --app-secondary: hsl(320, 100%, 60%);
+  --app-accent: hsl(0, 100%, 50%);
+  --app-background: hsl(0, 0%, 5%);
+  --app-text: hsl(320, 100%, 90%);
+  --app-neutral: hsl(320, 30%, 70%);
+  --app-card-bg: hsl(0, 0%, 12%);
+  --app-glow-pink: hsl(320, 100%, 60%);
+  --app-glow-red: hsl(0, 100%, 50%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 8%);
+  --foreground: hsl(320, 100%, 90%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(320, 30%, 70%);
+  --popover: hsl(0, 0%, 10%);
+  --popover-foreground: hsl(320, 100%, 90%);
+  --card: hsl(0, 0%, 12%);
+  --card-foreground: hsl(320, 100%, 90%);
+  --border: hsl(320, 30%, 25%);
+  --input: hsl(0, 0%, 15%);
+  --primary: hsl(320, 100%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(320, 100%, 60%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(0, 100%, 50%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(320, 100%, 60%);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(320, 20%, 8%) 100%);
+    color: hsl(320, 100%, 90%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .app-card {
+    @apply rounded-xl shadow-lg border transition-all duration-300;
+    background: linear-gradient(135deg, hsl(0, 0%, 12%) 0%, hsl(320, 10%, 15%) 100%);
+    border-color: hsl(320, 30%, 25%);
+    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.1);
+  }
+  
+  .app-card:hover {
+    @apply shadow-xl;
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .category-emoji {
+    @apply text-lg;
+  }
+  
+  .floating-button {
+    @apply fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center;
+    background: linear-gradient(135deg, hsl(320, 100%, 60%) 0%, hsl(0, 100%, 50%) 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4), 0 0 20px rgba(255, 0, 0, 0.3);
+  }
+  
+  .floating-button:hover {
+    @apply shadow-2xl;
+    box-shadow: 0 8px 40px rgba(255, 20, 147, 0.6), 0 0 30px rgba(255, 0, 0, 0.5);
+    transform: scale(1.1);
+  }
+  
+  .progress-bar {
+    @apply w-full rounded-full h-3 transition-all duration-300;
+    background-color: hsl(0, 0%, 20%);
+    border: 1px solid hsl(320, 30%, 25%);
+  }
+  
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, hsl(320, 100%, 60%) 0%, hsl(0, 100%, 50%) 100%);
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+  }
+  
+  .checkbox-button {
+    @apply w-6 h-6 border-2 rounded-full flex items-center justify-center transition-all duration-300;
+  }
+  
+  .checkbox-button.unchecked {
+    border-color: hsl(320, 30%, 50%);
+    background: transparent;
+  }
+  
+  .checkbox-button.unchecked:hover {
+    border-color: hsl(320, 100%, 60%);
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+  }
+  
+  .checkbox-button.checked {
+    background: linear-gradient(135deg, hsl(320, 100%, 60%) 0%, hsl(0, 100%, 50%) 100%);
+    border-color: hsl(320, 100%, 60%);
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.4);
+  }
+  
+  .glow-red {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.4);
+  }
+  
+  .neon-border {
+    border: 2px solid hsl(320, 100%, 60%);
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4), inset 0 0 15px rgba(255, 20, 147, 0.1);
+  }
+  
+  .reset-button {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, hsl(0, 100%, 50%) 0%, hsl(320, 100%, 60%) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+  }
+  
+  .reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 0, 0, 0.5);
+  }
+  
+  .animated-sparkle {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-sparkle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 20, 147, 0.3), transparent);
+    animation: sparkle 2s infinite;
+  }
+  
+  @keyframes sparkle {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  .item-completed {
+    @apply opacity-60;
+    animation: completeItem 0.5s ease-out;
+  }
+  
+  @keyframes completeItem {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .item-reset {
+    animation: resetItem 0.3s ease-out;
+  }
+  
+  @keyframes resetItem {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+}
+
+@layer utilities {
+  .touch-friendly {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
